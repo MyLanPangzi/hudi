@@ -18,6 +18,8 @@
 
 package org.apache.hudi.table;
 
+import org.apache.flink.table.catalog.ObjectIdentifier;
+import org.apache.flink.table.catalog.ResolvedCatalogTable;
 import org.apache.hudi.configuration.FlinkOptions;
 import org.apache.hudi.keygen.ComplexAvroKeyGenerator;
 import org.apache.hudi.keygen.NonpartitionedAvroKeyGenerator;
@@ -28,9 +30,6 @@ import org.apache.flink.configuration.Configuration;
 import org.apache.flink.configuration.ReadableConfig;
 import org.apache.flink.table.api.DataTypes;
 import org.apache.flink.table.api.TableSchema;
-import org.apache.flink.table.catalog.CatalogTable;
-import org.apache.flink.table.catalog.CatalogTableImpl;
-import org.apache.flink.table.catalog.ObjectIdentifier;
 import org.apache.flink.table.factories.DynamicTableFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -278,9 +277,14 @@ public class TestHoodieTableFactory {
     }
 
     @Override
-    public CatalogTable getCatalogTable() {
-      return new CatalogTableImpl(schema, partitions, conf.toMap(), "mock source table");
+    public ResolvedCatalogTable getCatalogTable() {
+      return null;
     }
+
+    // @Override
+    // public CatalogTable getCatalogTable() {
+    //  return new CatalogTableImpl(schema, partitions, conf.toMap(), "mock source table");
+    // }
 
     @Override
     public ReadableConfig getConfiguration() {

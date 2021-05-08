@@ -213,6 +213,11 @@ public class StreamWriteOperatorCoordinator
     syncHiveIfEnabled();
   }
 
+  @Override
+  public void notifyCheckpointAborted(long checkpointId) {
+
+  }
+
   private void syncHiveIfEnabled() {
     if (conf.getBoolean(FlinkOptions.HIVE_SYNC_ENABLED)) {
       this.hiveSyncExecutor.execute(this::syncHive, "sync hive metadata for instant %s", this.instant);
@@ -277,6 +282,11 @@ public class StreamWriteOperatorCoordinator
   @Override
   public void subtaskReset(int i, long l) {
     // no operation
+  }
+
+  @Override
+  public void subtaskReady(int i, SubtaskGateway subtaskGateway) {
+
   }
 
   // -------------------------------------------------------------------------
