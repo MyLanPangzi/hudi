@@ -384,7 +384,6 @@ public class StreamWriteFunction<K, I, O>
         .build();
     this.eventGateway.sendEventToCoordinator(event);
     this.buckets.clear();
-    this.writeClient.cleanHandles();
     this.currentInstant = "";
   }
 }

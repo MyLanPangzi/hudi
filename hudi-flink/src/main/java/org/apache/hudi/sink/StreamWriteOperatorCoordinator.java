@@ -209,6 +209,8 @@ public class StreamWriteOperatorCoordinator
           }
         }, "commits the instant %s", this.instant
     );
+    this.writeClient.cleanHandles();
+
     // sync Hive if is enabled
     syncHiveIfEnabled();
   }
