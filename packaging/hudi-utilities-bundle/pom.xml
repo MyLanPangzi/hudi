@@ -67,7 +67,7 @@
                   <include>org.apache.hudi:hudi-common</include>
                   <include>org.apache.hudi:hudi-client-common</include>
                   <include>org.apache.hudi:hudi-spark-client</include>
-                  <include>org.apache.hudi:hudi-utilities_${scala.binary.version}</include>
+                  <include>org.apache.hudi:hudi-utilities-spark_${scala.binary.version}</include>
                   <include>org.apache.hudi:hudi-spark-common</include>
                   <include>org.apache.hudi:hudi-spark_${scala.binary.version}</include>
                   <include>org.apache.hudi:hudi-spark2_${scala.binary.version}</include>
@@ -256,7 +256,7 @@
     </dependency>
     <dependency>
       <groupId>org.apache.hudi</groupId>
-      <artifactId>hudi-utilities_${scala.binary.version}</artifactId>
+      <artifactId>hudi-utilities-spark_${scala.binary.version}</artifactId>
       <version>${project.version}</version>
     </dependency>
 
